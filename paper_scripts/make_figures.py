@@ -50,7 +50,7 @@ def save(fig, name):
 def fig_case_study():
     d = pd.read_csv(CASE / "results.csv")
     nd = pd.read_csv(CASE / "nominal.csv")
-    fig, ax = plt.subplots(1, 2, figsize=(W, 2.4), gridspec_kw=dict(width_ratios=[1, 1.1]))
+    fig, ax = plt.subplots(1, 2, figsize=(W, 2.6), gridspec_kw=dict(width_ratios=[1, 1.1]))
     a = ax[0]
     for r, (lab, c, ls) in ROLE.items():
         g = d[d.role == r].groupby("tau").status.apply(lambda s: 100 * (s != "INFEASIBLE").mean())
@@ -61,7 +61,8 @@ def fig_case_study():
     a.grid(color=GRID, lw=0.5)
     a.set_axisbelow(True)
     title(a, "a", "Feasibility against threshold")
-    a.legend(loc="lower left", fontsize=6.5)
+    a.legend(loc="upper center", bbox_to_anchor=(0.5, -0.24), ncol=3, fontsize=6.5, handlelength=2.2,
+             columnspacing=1.0)
     b = ax[1]
     v = nd[nd.variant != "release"]
     rules = [("template", "Role template"), ("ratio", "Utility per cost"), ("MST", "MST (nominal)"),
