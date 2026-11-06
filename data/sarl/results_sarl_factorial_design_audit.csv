@@ -1,0 +1,6 @@
+check,observed,expected,passed
+total_rows,36,36,True
+unique_scenario_role_threshold_conditions,36,36,True
+missing_factorial_conditions,0,0,True
+unexpected_factorial_conditions,0,0,True
+duplicate_condition_rows,0,0,True

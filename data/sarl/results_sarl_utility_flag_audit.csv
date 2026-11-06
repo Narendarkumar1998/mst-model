@@ -1,0 +1,4 @@
+check,failed_rows,passed
+sufficient_flag_matches_utility_and_status,0,True
+all_rows_verified,0,True
+selected_counts_match_item_sets,0,True

@@ -1,0 +1,5 @@
+field,rows_checked,maximum_residual,failed_rows_at_1e_minus_12,passed
+utility,36,0.0,0,True
+privacy_exposure,36,8.326672684688674e-17,0,True
+interpretation_cost,36,5.551115123125783e-17,0,True
+objective,36,2.220446049250313e-16,0,True

@@ -1,0 +1,7 @@
+target/
+results/*.csv
+.settings/
+src/main/generated-sources/**
+!src/main/generated-sources/sarl/
+!src/main/generated-sources/sarl/.gitkeep
+src/test/generated-sources/

@@ -1,0 +1,52 @@
+[INFO, 5:04:01pm, MSTBootAgent] Starting MST multi-scenario sweep
+[INFO, 5:04:01pm, MSTBootAgent] Request: scenario=HVAC_FAULT | tau=0.7
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=HVAC_FAULT | tau=0.7 | role=FACILITY_MANAGER | status=FEASIBLE | selected=[hvac_fault_code] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=HVAC_FAULT | tau=0.7 | role=OCCUPANT | status=FEASIBLE | selected=[zone_temperature] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=HVAC_FAULT | tau=0.7 | role=SECURITY | status=FEASIBLE | selected=[safety_interlock_status] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Request: scenario=HVAC_FAULT | tau=0.8
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=HVAC_FAULT | tau=0.8 | role=FACILITY_MANAGER | status=FEASIBLE | selected=[hvac_fault_code] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=HVAC_FAULT | tau=0.8 | role=OCCUPANT | status=FEASIBLE | selected=[zone_temperature, comfort_deviation] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=HVAC_FAULT | tau=0.8 | role=SECURITY | status=FEASIBLE | selected=[safety_interlock_status, affected_access_zone] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Request: scenario=HVAC_FAULT | tau=0.9
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=HVAC_FAULT | tau=0.9 | role=OCCUPANT | status=FEASIBLE | selected=[zone_temperature, comfort_deviation] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=HVAC_FAULT | tau=0.9 | role=SECURITY | status=INFEASIBLE | selected=[] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=HVAC_FAULT | tau=0.9 | role=FACILITY_MANAGER | status=FEASIBLE | selected=[hvac_fault_code, airflow_anomaly] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Request: scenario=HVAC_FAULT | tau=0.95
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=HVAC_FAULT | tau=0.95 | role=SECURITY | status=INFEASIBLE | selected=[] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=HVAC_FAULT | tau=0.95 | role=FACILITY_MANAGER | status=FEASIBLE | selected=[hvac_fault_code, airflow_anomaly, zone_occupancy_count] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=HVAC_FAULT | tau=0.95 | role=OCCUPANT | status=INFEASIBLE | selected=[] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Request: scenario=COMFORT_DEVIATION | tau=0.7
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=COMFORT_DEVIATION | tau=0.7 | role=FACILITY_MANAGER | status=FEASIBLE | selected=[temperature_trend] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=COMFORT_DEVIATION | tau=0.7 | role=OCCUPANT | status=FEASIBLE | selected=[zone_temperature] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=COMFORT_DEVIATION | tau=0.7 | role=SECURITY | status=FEASIBLE | selected=[safety_threshold_status] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Request: scenario=COMFORT_DEVIATION | tau=0.8
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=COMFORT_DEVIATION | tau=0.8 | role=FACILITY_MANAGER | status=FEASIBLE | selected=[temperature_trend, hvac_operating_mode] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=COMFORT_DEVIATION | tau=0.8 | role=SECURITY | status=FEASIBLE | selected=[safety_threshold_status, affected_zone] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=COMFORT_DEVIATION | tau=0.8 | role=OCCUPANT | status=FEASIBLE | selected=[zone_temperature, comfort_target_difference] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Request: scenario=COMFORT_DEVIATION | tau=0.9
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=COMFORT_DEVIATION | tau=0.9 | role=FACILITY_MANAGER | status=FEASIBLE | selected=[temperature_trend, hvac_operating_mode] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=COMFORT_DEVIATION | tau=0.9 | role=SECURITY | status=INFEASIBLE | selected=[] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=COMFORT_DEVIATION | tau=0.9 | role=OCCUPANT | status=INFEASIBLE | selected=[] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Request: scenario=COMFORT_DEVIATION | tau=0.95
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=COMFORT_DEVIATION | tau=0.95 | role=OCCUPANT | status=INFEASIBLE | selected=[] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=COMFORT_DEVIATION | tau=0.95 | role=FACILITY_MANAGER | status=FEASIBLE | selected=[temperature_trend, hvac_operating_mode, aggregated_occupancy_level] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=COMFORT_DEVIATION | tau=0.95 | role=SECURITY | status=INFEASIBLE | selected=[] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Request: scenario=SECURITY_ALARM | tau=0.7
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=SECURITY_ALARM | tau=0.7 | role=FACILITY_MANAGER | status=FEASIBLE | selected=[alarm_status] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=SECURITY_ALARM | tau=0.7 | role=SECURITY | status=FEASIBLE | selected=[alarm_status] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=SECURITY_ALARM | tau=0.7 | role=OCCUPANT | status=FEASIBLE | selected=[alarm_status] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Request: scenario=SECURITY_ALARM | tau=0.8
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=SECURITY_ALARM | tau=0.8 | role=OCCUPANT | status=FEASIBLE | selected=[alarm_status, affected_access_zone] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=SECURITY_ALARM | tau=0.8 | role=SECURITY | status=FEASIBLE | selected=[alarm_status] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=SECURITY_ALARM | tau=0.8 | role=FACILITY_MANAGER | status=FEASIBLE | selected=[alarm_status, affected_building_zone] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Request: scenario=SECURITY_ALARM | tau=0.9
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=SECURITY_ALARM | tau=0.9 | role=FACILITY_MANAGER | status=FEASIBLE | selected=[alarm_status, affected_building_zone, device_health_summary] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=SECURITY_ALARM | tau=0.9 | role=SECURITY | status=FEASIBLE | selected=[alarm_status, affected_access_zone] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=SECURITY_ALARM | tau=0.9 | role=OCCUPANT | status=INFEASIBLE | selected=[] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Request: scenario=SECURITY_ALARM | tau=0.95
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=SECURITY_ALARM | tau=0.95 | role=OCCUPANT | status=INFEASIBLE | selected=[] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=SECURITY_ALARM | tau=0.95 | role=FACILITY_MANAGER | status=INFEASIBLE | selected=[] | verified=true | nestedApplicable=false | nestedPassed=false
+[INFO, 5:04:01pm, MSTBootAgent] Response: scenario=SECURITY_ALARM | tau=0.95 | role=SECURITY | status=FEASIBLE | selected=[alarm_status, affected_access_zone] | verified=true | nestedApplicable=true | nestedPassed=true
+[INFO, 5:04:01pm, MSTBootAgent] MULTI-SCENARIO SWEEP COMPLETE | conditions=36 | verified=36/36 | nested=17/17
+[INFO, 5:04:01pm, SARL Run-time Environment] Stopping the kernel services
+[INFO, 5:04:01pm, SARL Run-time Environment] All kernel services are stopped

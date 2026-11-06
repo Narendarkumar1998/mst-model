@@ -1,0 +1,13 @@
+method,parameter,value,R1_sufficient_when_possible_pct,R2_no_prohibited_item_pct,R1_R2_R3_all_met_pct
+A1_soft_admissibility,SOFT_PENALTY_PER_PROHIBITED_ITEM,0.1,100.0,82.39,82.39
+A1_soft_admissibility,SOFT_PENALTY_PER_PROHIBITED_ITEM,1.0,100.0,92.05,92.05
+A1_soft_admissibility,SOFT_PENALTY_PER_PROHIBITED_ITEM,10.0,100.0,92.05,92.05
+B6_budgeted_coverage,COVERAGE_BUDGET,0.15,17.1,48.13,6.28
+B6_budgeted_coverage,COVERAGE_BUDGET,0.25,48.03,29.53,11.13
+B6_budgeted_coverage,COVERAGE_BUDGET,0.35,70.98,19.07,11.25
+C2_goal_obfuscation,PRIVACY_BUDGET,0.25,41.1,76.8,23.12
+C2_goal_obfuscation,PRIVACY_BUDGET,0.35,66.63,59.5,29.08
+C2_goal_obfuscation,PRIVACY_BUDGET,0.5,91.06,38.58,30.43
+C4_parsimonious_haexa,PARSIMONY_K,2.0,25.95,49.6,11.65
+C4_parsimonious_haexa,PARSIMONY_K,3.0,54.85,35.4,17.75
+C4_parsimonious_haexa,PARSIMONY_K,4.0,75.86,20.8,14.75

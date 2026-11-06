@@ -1,0 +1,5 @@
+tau,total_conditions,feasible_conditions,infeasible_conditions,verified_conditions,nested_applicable,nested_passed,mean_selected_count_all_conditions
+0.7,9,9,0,9,0,0,1.0
+0.8,9,9,0,9,9,9,1.7777777777777777
+0.9,9,5,4,9,5,5,1.2222222222222223
+0.95,9,3,6,9,3,3,0.8888888888888888

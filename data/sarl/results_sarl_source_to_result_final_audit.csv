@@ -1,0 +1,5 @@
+check,failed_rows,passed
+scenario_role_threshold_keys,0,True
+categorical_boolean_count_outputs,0,True
+numerical_outputs,0,True
+source_contract,0,True

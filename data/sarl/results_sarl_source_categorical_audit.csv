@@ -1,0 +1,10 @@
+field,rows_checked,matching_rows,failed_rows,passed
+status,36,36,0,True
+selected_items,36,36,0,True
+sufficient,36,36,0,True
+privacy_admissible,36,36,0,True
+minimal,36,36,0,True
+verified,36,36,0,True
+nested_applicable,36,36,0,True
+nested_passed,36,36,0,True
+selected_count,36,36,0,True

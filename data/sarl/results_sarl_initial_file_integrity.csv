@@ -1,0 +1,4 @@
+check,observed,expected,passed
+total_rows,36,36,True
+complete_duplicate_rows,0,0,True
+columns_with_missing_values,0,inspect_semantically,pending_semantic_audit

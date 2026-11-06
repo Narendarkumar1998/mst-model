@@ -1,0 +1,10 @@
+check,failed_rows,passed
+feasible_rows,0,True
+feasible_selected_count_positive,0,True
+feasible_selected_items_not_placeholder,0,True
+feasible_utility_reaches_tau,0,True
+feasible_sufficient_true,0,True
+feasible_privacy_admissible_true,0,True
+feasible_minimal_flag_true,0,True
+feasible_verified_true,0,True
+feasible_selected_count_matches_items,0,True

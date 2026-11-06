@@ -1,0 +1,4 @@
+check,observed,expected,passed
+stored_rows,36,36,True
+reconstructed_rows,36,36,True
+matched_scenario_role_threshold_keys,36,36,True

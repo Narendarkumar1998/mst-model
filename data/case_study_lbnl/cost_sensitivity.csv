@@ -1,0 +1,137 @@
+target,day,role,same_selection,jaccard,n_nominal,n_uniform
+HVAC north,2018-12-17,facility_manager,False,0.5,3,3
+HVAC north,2018-12-17,energy_auditor,False,0.3333333333333333,2,2
+HVAC north,2018-12-17,occupant,True,1.0,1,1
+HVAC north,2019-02-15,facility_manager,True,1.0,1,1
+HVAC north,2019-02-15,energy_auditor,True,1.0,1,1
+HVAC north,2019-02-15,occupant,True,1.0,1,1
+HVAC north,2018-12-07,energy_auditor,False,0.6,4,4
+HVAC north,2018-07-10,facility_manager,True,1.0,2,2
+HVAC north,2018-07-10,energy_auditor,False,0.3333333333333333,2,2
+HVAC north,2018-07-10,occupant,True,1.0,1,1
+HVAC north,2019-01-23,facility_manager,False,0.2,3,3
+HVAC north,2019-01-23,energy_auditor,True,1.0,2,2
+HVAC north,2019-01-23,occupant,True,1.0,1,1
+HVAC north,2018-12-28,facility_manager,True,1.0,3,3
+HVAC north,2018-12-28,energy_auditor,True,1.0,2,2
+HVAC north,2018-12-28,occupant,True,1.0,1,1
+HVAC north,2018-06-13,facility_manager,True,1.0,2,2
+HVAC north,2018-06-13,energy_auditor,False,0.3333333333333333,2,2
+HVAC north,2018-06-13,occupant,True,1.0,1,1
+HVAC north,2018-11-09,facility_manager,True,1.0,2,2
+HVAC north,2018-11-09,energy_auditor,False,0.0,2,2
+HVAC north,2018-11-09,occupant,True,1.0,1,1
+HVAC north,2019-01-31,facility_manager,False,0.3333333333333333,2,2
+HVAC north,2019-01-31,energy_auditor,True,1.0,1,1
+HVAC north,2019-01-31,occupant,True,1.0,1,1
+HVAC south,2019-02-19,facility_manager,True,1.0,1,1
+HVAC south,2019-02-19,energy_auditor,True,1.0,1,1
+HVAC south,2019-01-28,facility_manager,True,1.0,1,1
+HVAC south,2019-01-28,energy_auditor,True,1.0,1,1
+HVAC south,2019-01-28,occupant,True,1.0,1,1
+HVAC south,2018-12-11,facility_manager,True,1.0,7,7
+HVAC south,2018-12-11,energy_auditor,False,0.6,4,4
+HVAC south,2018-12-11,occupant,True,1.0,2,2
+HVAC south,2019-02-26,facility_manager,True,1.0,1,1
+HVAC south,2019-02-26,energy_auditor,True,1.0,1,1
+HVAC south,2019-02-26,occupant,True,1.0,2,2
+HVAC south,2019-02-04,facility_manager,True,1.0,1,1
+HVAC south,2019-02-04,energy_auditor,True,1.0,1,1
+HVAC south,2018-08-24,energy_auditor,True,1.0,5,5
+HVAC south,2018-12-04,facility_manager,True,1.0,1,1
+HVAC south,2018-12-04,energy_auditor,True,1.0,1,1
+HVAC south,2018-12-04,occupant,True,1.0,2,2
+HVAC south,2018-10-08,facility_manager,True,1.0,1,1
+HVAC south,2018-10-08,energy_auditor,True,1.0,1,1
+HVAC south,2018-10-08,occupant,True,1.0,1,1
+HVAC south,2018-09-20,facility_manager,True,1.0,1,1
+HVAC south,2018-09-20,energy_auditor,True,1.0,1,1
+HVAC south,2018-09-20,occupant,True,1.0,1,1
+HVAC south,2018-07-10,facility_manager,True,1.0,1,1
+HVAC south,2018-07-10,energy_auditor,True,1.0,1,1
+HVAC south,2018-07-10,occupant,True,1.0,1,1
+HVAC south,2018-06-12,facility_manager,True,1.0,1,1
+HVAC south,2018-06-12,energy_auditor,True,1.0,1,1
+HVAC south,2018-06-12,occupant,True,1.0,1,1
+HVAC south,2018-11-09,facility_manager,False,0.3333333333333333,2,2
+HVAC south,2018-11-09,energy_auditor,True,1.0,1,1
+HVAC south,2018-11-09,occupant,True,1.0,1,1
+plug loads north,2018-12-27,facility_manager,True,1.0,1,1
+plug loads north,2018-12-27,energy_auditor,True,1.0,1,1
+plug loads north,2018-12-27,occupant,True,1.0,1,1
+plug loads north,2019-01-14,facility_manager,True,1.0,1,1
+plug loads north,2019-01-14,energy_auditor,True,1.0,1,1
+plug loads north,2019-01-14,occupant,True,1.0,1,1
+plug loads north,2018-12-14,energy_auditor,False,0.75,7,7
+plug loads north,2018-12-14,occupant,True,1.0,1,1
+plug loads north,2019-02-04,facility_manager,True,1.0,3,3
+plug loads north,2019-02-04,energy_auditor,True,1.0,2,2
+plug loads north,2019-02-04,occupant,True,1.0,1,1
+plug loads north,2018-12-06,facility_manager,True,1.0,6,6
+plug loads north,2018-12-06,energy_auditor,False,0.6666666666666666,5,5
+plug loads north,2018-12-06,occupant,True,1.0,4,4
+plug loads north,2019-02-11,facility_manager,True,1.0,3,3
+plug loads north,2019-02-11,energy_auditor,True,1.0,2,2
+plug loads north,2019-02-11,occupant,True,1.0,1,1
+plug loads north,2018-08-14,facility_manager,True,1.0,4,4
+plug loads north,2018-08-14,energy_auditor,True,1.0,5,5
+plug loads north,2018-08-14,occupant,False,0.3333333333333333,2,2
+plug loads north,2019-01-28,facility_manager,True,1.0,2,2
+plug loads north,2019-01-28,energy_auditor,False,0.3333333333333333,2,2
+plug loads north,2019-01-28,occupant,False,0.0,1,1
+plug loads north,2019-01-03,facility_manager,False,0.7142857142857143,6,6
+plug loads north,2019-01-03,energy_auditor,True,1.0,7,7
+plug loads north,2019-01-03,occupant,True,1.0,1,1
+plug loads north,2018-08-28,occupant,True,1.0,2,2
+plug loads south,2018-12-27,facility_manager,True,1.0,1,1
+plug loads south,2018-12-27,energy_auditor,True,1.0,1,1
+plug loads south,2018-12-27,occupant,True,1.0,1,1
+plug loads south,2019-01-14,facility_manager,False,0.3333333333333333,2,2
+plug loads south,2019-01-14,energy_auditor,True,1.0,1,1
+plug loads south,2019-01-14,occupant,True,1.0,1,1
+plug loads south,2018-10-29,facility_manager,False,0.2,3,3
+plug loads south,2018-10-29,energy_auditor,True,1.0,1,1
+plug loads south,2018-10-29,occupant,True,1.0,1,1
+plug loads south,2018-11-13,facility_manager,False,0.3333333333333333,2,2
+plug loads south,2018-11-13,energy_auditor,False,0.3333333333333333,2,2
+plug loads south,2018-11-13,occupant,True,1.0,1,1
+plug loads south,2019-02-04,facility_manager,False,0.3333333333333333,2,2
+plug loads south,2019-02-04,energy_auditor,False,0.0,1,1
+plug loads south,2019-02-04,occupant,True,1.0,1,1
+plug loads south,2018-12-14,facility_manager,True,1.0,1,1
+plug loads south,2018-12-14,energy_auditor,True,1.0,1,1
+plug loads south,2018-12-14,occupant,True,1.0,1,1
+plug loads south,2018-10-17,occupant,True,1.0,5,5
+plug loads south,2019-01-22,facility_manager,False,0.3333333333333333,2,2
+plug loads south,2019-01-22,energy_auditor,True,1.0,1,1
+plug loads south,2019-01-22,occupant,True,1.0,1,1
+plug loads south,2018-08-16,occupant,True,1.0,3,3
+plug loads south,2018-08-23,energy_auditor,True,1.0,4,4
+plug loads south,2018-08-23,occupant,True,1.0,1,1
+lighting south,2018-12-28,facility_manager,True,1.0,2,2
+lighting south,2018-12-28,energy_auditor,True,1.0,1,1
+lighting south,2018-12-28,occupant,True,1.0,1,1
+lighting south,2018-12-18,facility_manager,True,1.0,8,8
+lighting south,2018-12-18,energy_auditor,False,0.7142857142857143,6,6
+lighting south,2018-12-18,occupant,True,1.0,2,2
+lighting south,2019-01-14,facility_manager,True,1.0,1,1
+lighting south,2019-01-14,energy_auditor,True,1.0,1,1
+lighting south,2019-01-14,occupant,True,1.0,1,1
+lighting south,2019-02-25,facility_manager,True,1.0,3,3
+lighting south,2019-02-25,energy_auditor,True,1.0,3,3
+lighting south,2019-02-25,occupant,True,1.0,1,1
+lighting south,2018-07-05,facility_manager,True,1.0,6,6
+lighting south,2018-07-05,energy_auditor,True,1.0,4,4
+lighting south,2018-07-05,occupant,True,1.0,1,1
+lighting south,2019-01-30,facility_manager,True,1.0,5,5
+lighting south,2019-01-30,energy_auditor,True,1.0,4,4
+lighting south,2019-01-30,occupant,True,1.0,1,1
+lighting south,2018-11-15,facility_manager,True,1.0,4,4
+lighting south,2018-11-15,energy_auditor,True,1.0,3,3
+lighting south,2018-11-15,occupant,True,1.0,1,1
+lighting south,2018-06-27,facility_manager,True,1.0,4,4
+lighting south,2018-06-27,energy_auditor,True,1.0,3,3
+lighting south,2018-06-27,occupant,True,1.0,2,2
+lighting south,2019-02-13,facility_manager,False,0.75,7,7
+lighting south,2019-02-13,energy_auditor,False,0.6,4,4
+lighting south,2019-02-13,occupant,True,1.0,3,3

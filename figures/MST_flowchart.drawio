@@ -1,0 +1,110 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="MST flowchart" id="mst">
+    <mxGraphModel dx="1034" dy="511" grid="1" gridSize="5" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="740" pageHeight="880" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" value="" style="rounded=1;arcSize=2;dashed=1;html=1;fillColor=#FFFDF0;strokeColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="20" y="190" width="680" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="ftitle" value="&lt;b&gt;Assistant agent: MST capability&lt;/b&gt;" style="text;html=1;align=right;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="450" y="650" width="240" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="env" value="&lt;b&gt;Remote agents&lt;/b&gt;" style="rounded=1;arcSize=8;fontFamily=Helvetica;fontSize=12;html=1;whiteSpace=wrap;strokeColor=#333333;spacing=4;fillColor=#E8E8FF;" parent="1" vertex="1">
+          <mxGeometry x="40" y="20" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="role" value="&lt;b&gt;Role agent&lt;/b&gt;" style="rounded=1;arcSize=8;fontFamily=Helvetica;fontSize=12;html=1;whiteSpace=wrap;strokeColor=#333333;spacing=4;fillColor=#E8E8FF;" parent="1" vertex="1">
+          <mxGeometry x="290" y="20" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pool" value="Candidate pool &lt;i&gt;I&lt;/i&gt;&lt;sub&gt;t&lt;/sub&gt;&lt;br&gt;items &lt;i&gt;z&lt;/i&gt;&lt;sub&gt;i&lt;/sub&gt; = (&lt;i&gt;u&lt;/i&gt;&lt;sub&gt;i&lt;/sub&gt;, &lt;i&gt;p&lt;/i&gt;&lt;sub&gt;i&lt;/sub&gt;, &lt;i&gt;c&lt;/i&gt;&lt;sub&gt;i&lt;/sub&gt;)&lt;br&gt;utility uncertainty &lt;i&gt;d&lt;/i&gt;&lt;sub&gt;i&lt;/sub&gt;" style="rounded=1;arcSize=8;fontFamily=Helvetica;fontSize=12;html=1;whiteSpace=wrap;strokeColor=#333333;spacing=4;fillColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="40" y="95" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="req" value="Request: role &lt;i&gt;r&lt;/i&gt;&lt;sub&gt;t&lt;/sub&gt;, context &lt;i&gt;κ&lt;/i&gt;&lt;sub&gt;t&lt;/sub&gt;&lt;br&gt;threshold &lt;i&gt;τ&lt;/i&gt;, weights &lt;i&gt;λ&lt;/i&gt;,&lt;br&gt;uncertainty budget Γ" style="rounded=1;arcSize=8;fontFamily=Helvetica;fontSize=12;html=1;whiteSpace=wrap;strokeColor=#333333;spacing=4;fillColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="290" y="95" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" value="&lt;b&gt;1. Policy transformation&lt;/b&gt; Π&lt;sub&gt;&lt;i&gt;P&lt;/i&gt;&lt;/sub&gt;&lt;br&gt;redact, aggregate, generalise" style="rounded=1;arcSize=8;fontFamily=Helvetica;fontSize=12;html=1;whiteSpace=wrap;strokeColor=#333333;spacing=4;fillColor=#F2F2F2;" parent="1" vertex="1">
+          <mxGeometry x="100" y="210" width="290" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="&lt;b&gt;2. Hard admissibility&lt;/b&gt; χ&lt;sub&gt;&lt;i&gt;P&lt;/i&gt;&lt;/sub&gt;&lt;br&gt;keep permitted items only → &lt;i&gt;D&lt;/i&gt;&lt;sub&gt;t&lt;/sub&gt;" style="rounded=1;arcSize=8;fontFamily=Helvetica;fontSize=12;html=1;whiteSpace=wrap;strokeColor=#333333;spacing=4;fillColor=#F2F2F2;" parent="1" vertex="1">
+          <mxGeometry x="100" y="285" width="290" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="&lt;b&gt;3. Sufficient?&lt;/b&gt;&lt;br&gt;&lt;i&gt;U&lt;/i&gt;(&lt;i&gt;D&lt;/i&gt;&lt;sub&gt;t&lt;/sub&gt;) ≥ &lt;i&gt;τ&lt;/i&gt;&lt;br&gt;under Γ" style="rhombus;html=1;whiteSpace=wrap;fontFamily=Helvetica;fontSize=12;fillColor=#FFE9D6;strokeColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="125" y="360" width="240" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="inf" value="&lt;b&gt;Infeasible, with diagnostic&lt;/b&gt;&lt;br&gt;shortfall &lt;i&gt;τ&lt;/i&gt; − &lt;i&gt;U&lt;/i&gt;(&lt;i&gt;D&lt;/i&gt;&lt;sub&gt;t&lt;/sub&gt;)&lt;br&gt;release restoring sufficiency:&lt;br&gt;fewest items or least exposure" style="rounded=1;arcSize=8;fontFamily=Helvetica;fontSize=12;html=1;whiteSpace=wrap;strokeColor=#333333;spacing=4;fillColor=#FDE4E4;" parent="1" vertex="1">
+          <mxGeometry x="440" y="360" width="235" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="act" value="lower &lt;i&gt;τ&lt;/i&gt;, grant a permission,&lt;br&gt;gather evidence, or escalate" style="rounded=1;arcSize=8;fontFamily=Helvetica;fontSize=12;html=1;whiteSpace=wrap;strokeColor=#333333;spacing=4;fillColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="440" y="480" width="235" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" value="&lt;b&gt;4. Select minimum sufficient subset&lt;/b&gt;&lt;br&gt;min&lt;sub&gt;&lt;i&gt;S&lt;/i&gt; ⊆ &lt;i&gt;D&lt;/i&gt;&lt;sub&gt;t&lt;/sub&gt;&lt;/sub&gt; &lt;i&gt;J&lt;/i&gt;(&lt;i&gt;S&lt;/i&gt;) = &lt;i&gt;λ&lt;/i&gt;&lt;sub&gt;&lt;i&gt;P&lt;/i&gt;&lt;/sub&gt;&lt;i&gt;P&lt;/i&gt; + &lt;i&gt;λ&lt;/i&gt;&lt;sub&gt;&lt;i&gt;C&lt;/i&gt;&lt;/sub&gt;&lt;i&gt;C&lt;/i&gt; + &lt;i&gt;λ&lt;/i&gt;&lt;sub&gt;&lt;i&gt;K&lt;/i&gt;&lt;/sub&gt;&lt;i&gt;K&lt;/i&gt;&lt;br&gt;s.t. &lt;i&gt;U&lt;/i&gt;(&lt;i&gt;S&lt;/i&gt;) ≥ &lt;i&gt;τ&lt;/i&gt; when any Γ selected&lt;br&gt;utilities are overestimated" style="rounded=1;arcSize=8;fontFamily=Helvetica;fontSize=12;html=1;whiteSpace=wrap;strokeColor=#333333;spacing=4;fillColor=#F2F2F2;" parent="1" vertex="1">
+          <mxGeometry x="100" y="480" width="290" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="solv" value="Solver skills: mixed-integer model (SCIP),&lt;br&gt;exhaustive search for small pools;&lt;br&gt;ties broken by the comparison tuple Φ" style="rounded=1;arcSize=8;fontFamily=Helvetica;fontSize=12;html=1;whiteSpace=wrap;strokeColor=#333333;spacing=4;fillColor=#FAFAFA;" parent="1" vertex="1">
+          <mxGeometry x="100" y="590" width="290" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="out" value="&lt;b&gt;Selected disclosure&lt;/b&gt; &lt;i&gt;S&lt;/i&gt;&lt;sup&gt;*&lt;/sup&gt;&lt;br&gt;sufficient within Γ, admissible, minimal" style="rounded=1;arcSize=8;fontFamily=Helvetica;fontSize=12;html=1;whiteSpace=wrap;strokeColor=#333333;spacing=4;fillColor=#DFF5DF;" parent="1" vertex="1">
+          <mxGeometry x="125" y="715" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="stake" value="&lt;b&gt;Stakeholder&lt;/b&gt;&lt;br&gt;receives &lt;i&gt;S&lt;/i&gt;&lt;sup&gt;*&lt;/sup&gt; via the role agent" style="rounded=1;arcSize=8;fontFamily=Helvetica;fontSize=12;html=1;whiteSpace=wrap;strokeColor=#333333;spacing=4;fillColor=#E8E8FF;" parent="1" vertex="1">
+          <mxGeometry x="125" y="800" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;endFill=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#FFFFFF;" parent="1" source="env" target="pool" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;endFill=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#FFFFFF;" parent="1" source="role" target="req" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;endFill=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.35;entryY=0;" parent="1" source="pool" target="s1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="140" y="180" />
+              <mxPoint x="202" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;endFill=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.65;entryY=0;" parent="1" source="req" target="s1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="180" />
+              <mxPoint x="289" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;endFill=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#FFFFFF;" parent="1" source="s1" target="s2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;endFill=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#FFFFFF;" parent="1" source="s2" target="s3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="no" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;endFill=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="s3" target="inf" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;endFill=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#FFFFFF;" parent="1" source="s3" target="s4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;endFill=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#FFFFFF;" parent="1" source="inf" target="act" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="new request" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;endFill=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" parent="1" source="act" target="role" edge="1">
+          <mxGeometry x="0.1478" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="715" y="507.5" />
+              <mxPoint x="715" y="45" />
+            </Array>
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;endFill=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#FFFFFF;endArrow=none;dashed=1;" parent="1" source="s4" target="solv" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;endFill=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#FFFFFF;" parent="1" source="solv" target="out" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;endFill=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#FFFFFF;" parent="1" source="out" target="stake" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

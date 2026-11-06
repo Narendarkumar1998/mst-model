@@ -1,0 +1,6 @@
+# The core module (mst/mst_core.py) uses only the Python standard library.
+numpy>=1.26
+pandas>=2.2
+scipy>=1.14
+matplotlib>=3.9
+pyscipopt>=6.0

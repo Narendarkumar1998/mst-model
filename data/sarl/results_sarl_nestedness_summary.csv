@@ -1,0 +1,6 @@
+check,observed,expected,passed
+stored_applicable_comparisons,17,17,True
+reconstructed_applicable_comparisons,17,17,True
+stored_nestedness_passes,17,17,True
+applicability_flags_match,36,36,True
+nestedness_flags_match,36,36,True

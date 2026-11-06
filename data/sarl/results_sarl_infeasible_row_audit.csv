@@ -1,0 +1,9 @@
+check,failed_rows,passed
+infeasible_rows,0,True
+infeasible_placeholder,0,True
+infeasible_numeric_outputs_zero,0,True
+infeasible_sufficient_false,0,True
+infeasible_privacy_flag_false,0,True
+infeasible_minimal_false,0,True
+infeasible_verified_true,0,True
+infeasible_nested_not_applicable,0,True

@@ -1,0 +1,13 @@
+semantic_field,matching_columns,match_count
+scenario,scenario,1
+role,role,1
+threshold,tau,1
+status,status,1
+verification,verified | nested_passed,2
+nestedness,nested_applicable | nested_passed,2
+selected_count,selected_count,1
+selected_items,selected_items,1
+utility,utility,1
+privacy,privacy_exposure | privacy_admissible,2
+interpretation_cost,interpretation_cost,1
+objective,objective,1

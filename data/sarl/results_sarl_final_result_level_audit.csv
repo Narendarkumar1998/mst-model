@@ -1,0 +1,6 @@
+check,failed_rows,passed
+factorial_design,0,True
+feasible_row_consistency,0,True
+infeasible_row_consistency,0,True
+adjacent_threshold_nestedness,0,True
+utility_and_stored_flags,0,True

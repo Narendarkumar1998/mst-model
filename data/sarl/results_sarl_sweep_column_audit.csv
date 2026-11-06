@@ -1,0 +1,17 @@
+column,dtype,rows,non_null_rows,missing_rows,unique_values,values,minimum,maximum,mean
+scenario,object,36,36,0,3,COMFORT_DEVIATION | HVAC_FAULT | SECURITY_ALARM,,,
+tau,float64,36,36,0,4,0.7 | 0.8 | 0.9 | 0.95,0.7,0.95,0.8374999999999999
+role,object,36,36,0,3,FACILITY_MANAGER | OCCUPANT | SECURITY,,,
+status,object,36,36,0,2,FEASIBLE | INFEASIBLE,,,
+selected_items,object,36,36,0,18,INFEASIBLE | alarm_status | alarm_status|affected_access_zone | alarm_status|affected_building_zone | alarm_status|affected_building_zone|device_health_summary | hvac_fault_code | hvac_fault_code|airflow_anomaly | hvac_fault_code|airflow_anomaly|zone_occupancy_count | safety_interlock_status | safety_interlock_status|affected_access_zone | safety_threshold_status | safety_threshold_status|affected_zone | temperature_trend | temperature_trend|hvac_operating_mode | temperature_trend|hvac_operating_mode|aggregated_occupancy_level | zone_temperature | zone_temperature|comfort_deviation | zone_temperature|comfort_target_difference,,,
+selected_count,int64,36,36,0,4,0 | 1 | 2 | 3,0.0,3.0,1.2222222222222223
+utility,float64,36,36,0,20,0.0 | 0.7 | 0.72 | 0.74 | 0.76 | 0.78 | 0.82 | 0.8768 | 0.88 | 0.888 | 0.8908 | 0.892 | 0.8992 | 0.904 | 0.9184 | 0.9244 | 0.94624 | 0.9544 | 0.957568 | 0.95842,0.0,0.95842,0.6213063333333334
+privacy_exposure,float64,36,36,0,16,0.0 | 0.07 | 0.0799999999999999 | 0.0999999999999999 | 0.126 | 0.1352 | 0.15 | 0.1816000000000001 | 0.2079999999999999 | 0.2087999999999999 | 0.2271999999999999 | 0.235 | 0.244 | 0.303744 | 0.3822399999999999 | 0.42625,0.0,0.42625,0.12493427777777774
+interpretation_cost,float64,36,36,0,14,0.0 | 0.18 | 0.2 | 0.24 | 0.3 | 0.36 | 0.38 | 0.4 | 0.42 | 0.5 | 0.54 | 0.64 | 0.8 | 0.89,0.0,0.89,0.2675
+objective,float64,36,36,0,22,0.0 | 0.2113675213675213 | 0.2177777777777777 | 0.2190785907859078 | 0.2234920634920635 | 0.2315277777777777 | 0.2358169934640523 | 0.2381944444444444 | 0.2444444444444444 | 0.2734706616729088 | 0.4387174603174603 | 0.4451487179487179 | 0.4494222222222222 | 0.4504967320261437 | 0.4686872628726287 | 0.4998888888888889 | 0.5001555555555556 | 0.5014722222222222 | 0.5028027465667915 | 0.7679146666666666 | 0.79408 | 0.80875,0.0,0.80875,0.2968397138824667
+sufficient,bool,36,36,0,2,False | True,0.0,1.0,0.7222222222222222
+privacy_admissible,bool,36,36,0,2,False | True,0.0,1.0,0.7222222222222222
+minimal,bool,36,36,0,2,False | True,0.0,1.0,0.7222222222222222
+verified,bool,36,36,0,1,True,1.0,1.0,1.0
+nested_applicable,bool,36,36,0,2,False | True,0.0,1.0,0.4722222222222222
+nested_passed,bool,36,36,0,2,False | True,0.0,1.0,0.4722222222222222

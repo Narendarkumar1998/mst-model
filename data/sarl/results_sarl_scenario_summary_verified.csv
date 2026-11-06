@@ -1,0 +1,4 @@
+scenario,total_conditions,feasible_conditions,infeasible_conditions,verified_conditions,nested_applicable,nested_passed,mean_selected_count_all_conditions,mean_selected_count_feasible,mean_utility_feasible,mean_privacy_exposure_feasible,mean_interpretation_cost_feasible,mean_objective_feasible
+COMFORT_DEVIATION,12,8,4,12,5,5,1.1666666666666667,1.75,0.853796,0.17062999999999995,0.39,0.4209639682539682
+HVAC_FAULT,12,9,3,12,6,6,1.25,1.6666666666666667,0.8536466666666667,0.17782777777777775,0.4011111111111111,0.40923004234305393
+SECURITY_ALARM,12,9,3,12,6,6,1.25,1.6666666666666667,0.8726488888888889,0.17023822222222218,0.3222222222222222,0.40393861918328583

@@ -1,0 +1,4 @@
+role,total_conditions,feasible_conditions,infeasible_conditions,verified_conditions,nested_applicable,nested_passed,mean_selected_count_all_conditions,mean_selected_count_feasible,mean_utility_feasible,mean_privacy_exposure_feasible,mean_interpretation_cost_feasible,mean_objective_feasible
+FACILITY_MANAGER,12,11,1,12,8,8,1.75,1.9090909090909092,0.8755843636363636,0.22291218181818176,0.4809090909090909,0.4905812992849846
+OCCUPANT,12,7,5,12,4,4,0.9166666666666666,1.5714285714285714,0.8225714285714286,0.11411428571428571,0.2942857142857143,0.35079088866315755
+SECURITY,12,8,4,12,5,5,1.0,1.5,0.8722,0.15584999999999996,0.285,0.3542873983739837

@@ -1,0 +1,129 @@
+package org.mst.sarl.agents
+
+import io.sarl.api.core.DefaultContextInteractions
+import io.sarl.api.core.Initialize
+import io.sarl.api.core.Lifecycle
+import io.sarl.api.core.Logging
+import org.mst.sarl.core.MSTSweepRecorder
+
+/**
+ * Coordinator of the multi-scenario MST sweep. It spawns one role agent per
+ * stakeholder role, then, for each scenario and threshold, emits an MSTRequest,
+ * waits for the three role responses, records and audits them, and moves to the
+ * next condition. After 3 scenarios x 4 thresholds x 3 roles = 36 conditions it
+ * reports the verification summary and stops the system.
+ */
+agent MSTBootAgent {
+
+	uses Logging, DefaultContextInteractions, Lifecycle
+
+	val scenarios : String[] = #["HVAC_FAULT", "COMFORT_DEVIATION", "SECURITY_ALARM"]
+	val thresholds : double[] = #[0.70, 0.80, 0.90, 0.95]
+	val roleCount = 3
+
+	val recorder = new MSTSweepRecorder
+
+	var currentScenario : String = "HVAC_FAULT"
+	var scenarioIndex = 0
+	var thresholdIndex = 0
+	var readyRoles = 0
+	var responses = 0
+	var finished = false
+
+	on Initialize {
+		loggingName = "MSTBootAgent"
+		this.recorder.open()
+		info("Starting MST multi-scenario sweep")
+		spawn(typeof(RoleAgent), "OCCUPANT")
+		spawn(typeof(RoleAgent), "FACILITY_MANAGER")
+		spawn(typeof(RoleAgent), "SECURITY")
+	}
+
+	on RoleReady {
+		var start = false
+		synchronized (this) {
+			this.readyRoles++
+			start = (this.readyRoles == this.roleCount)
+		}
+		if (start) {
+			sendCurrentRequest
+		}
+	}
+
+	def sendCurrentRequest {
+		if (this.scenarioIndex == 0) {
+			this.currentScenario = "HVAC_FAULT"
+		} else if (this.scenarioIndex == 1) {
+			this.currentScenario = "COMFORT_DEVIATION"
+		} else {
+			this.currentScenario = "SECURITY_ALARM"
+		}
+		val tau = this.thresholds.get(this.thresholdIndex)
+		info("Request: scenario=" + this.currentScenario + " | tau=" + tau)
+		emit(new MSTRequest(this.currentScenario, tau))
+	}
+
+	on MSTResponse [!finished] {
+		val response = occurrence
+		val status = this.recorder.record(
+			response.scenario,
+			response.tau,
+			response.role,
+			response.status,
+			response.selectedItems,
+			response.utility,
+			response.privacyExposure,
+			response.interpretationCost,
+			response.objective,
+			response.sufficient,
+			response.privacyAdmissible,
+			response.minimal)
+		info("Response: scenario=" + response.scenario
+			+ " | tau=" + response.tau
+			+ " | role=" + response.role
+			+ " | status=" + response.status
+			+ " | selected=" + response.selectedItems
+			+ " | verified=" + status.isVerified()
+			+ " | nestedApplicable="
+			+ status.isNestedApplicable()
+			+ " | nestedPassed="
+			+ status.isNestedPassed())
+
+		var advance = false
+		synchronized (this) {
+			this.responses++
+			if (this.responses == this.roleCount) {
+				this.responses = 0
+				advance = true
+			}
+		}
+		if (advance) {
+			nextCondition
+		}
+	}
+
+	def nextCondition {
+		this.thresholdIndex++
+		if (this.thresholdIndex >= this.thresholds.length) {
+			this.thresholdIndex = 0
+			this.scenarioIndex++
+		}
+		if (this.scenarioIndex >= this.scenarios.length) {
+			finishSweep
+		} else {
+			sendCurrentRequest
+		}
+	}
+
+	def finishSweep {
+		this.finished = true
+		this.recorder.close()
+		info("MULTI-SCENARIO SWEEP COMPLETE"
+			+ " | conditions=" + this.recorder.getRows()
+			+ " | verified=" + this.recorder.getVerified() + "/" + this.recorder.getRows()
+			+ " | nested=" + this.recorder.getNestedPassed()
+			+ "/" + this.recorder.getNestedApplicable())
+		emit(new StopRoles)
+		killMe
+	}
+}
