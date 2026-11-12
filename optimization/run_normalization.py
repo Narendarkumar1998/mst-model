@@ -1,5 +1,5 @@
 """
-Fixed reference scales against normalization by pool totals (Paper 1, Section 3.3).
+Fixed reference scales against normalization by pool totals (Section 4.1.5 of the paper).
 
 For every pool of the synthetic benchmark (sizes 8 to 16, 100 replicates, three regimes;
 all items admissible) and every threshold and weight profile, the exact MST optimum is

@@ -1,5 +1,5 @@
 """
-Tables of Paper 1, written as LaTeX to tables/.
+Tables of the article, written as LaTeX to tables/.
 
   tab_comparison.tex     requirements met and objective excess of MST, ablations, and closest approaches
   tab_admissibility.tex  infeasibility and release diagnostic against the prohibited share

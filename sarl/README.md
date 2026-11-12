@@ -7,7 +7,7 @@ the 36-condition execution reported in the paper.
 
 The original source folder of this project was lost after the experiment was
 run. This project is a **reconstruction** made from the documented design
-(the research record, the candidate pools listed in Online Resource 1, and
+(the research record, the candidate pools listed in the Supplementary Material, and
 source lines preserved in the source-to-result audit files). The Java core
 (`MSTService`, `MSTResult`, `MSTSweepRecorder`) has been verified to reproduce
 the original stored output `reference-output/sarl_mst_multiscenario_sweep.csv`

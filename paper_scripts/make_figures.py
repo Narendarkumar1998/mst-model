@@ -1,5 +1,5 @@
 """
-Figures of Paper 1 (model paper). Plain lines and bars only.
+Figures of the article. Plain lines and bars only.
 
   figures/fig_case_study.pdf   feasibility against threshold per role; robustness to estimation error by rule
   figures/fig_robustness.pdf   nominal against robust selection on synthetic pools with estimation noise

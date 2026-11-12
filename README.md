@@ -36,13 +36,13 @@ execution. The algorithmic study of heuristics and metaheuristics for large pool
 
 ```bash
 pip install -r requirements.txt            # numpy, pandas, matplotlib, pyscipopt
-python comparison/run_comparison.py        # Section 6.4, data/comparison/comparison_rows.csv.gz
+python comparison/run_comparison.py        # Section 4.1.4, data/comparison/comparison_rows.csv.gz
 python comparison/sensitivity.py           # Table S3
-python optimization/run_robustness.py      # Section 6.2, data/benchmark/robustness.csv
-python optimization/run_admissibility.py   # Section 6.3, data/benchmark/admissibility.csv.gz
-python optimization/run_normalization.py   # Section 6.5, data/benchmark/normalization.csv
+python optimization/run_robustness.py      # Section 4.1.2, data/benchmark/robustness.csv
+python optimization/run_admissibility.py   # Section 4.1.3, data/benchmark/admissibility.csv.gz
+python optimization/run_normalization.py   # Section 4.1.5, data/benchmark/normalization.csv
 python case_study_lbnl/prepare_data.py "<path to Bldg59_clean data>"   # optional, output is included
-python case_study_lbnl/run_case_study.py   # Section 7
+python case_study_lbnl/run_case_study.py   # Section 4.2
 python paper_scripts/make_figures.py
 python paper_scripts/make_tables.py
 ```

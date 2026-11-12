@@ -6,7 +6,7 @@ U(S) = 1 - prod(1 - u_i), P(S) = 1 - prod(1 - p_i), C(S) = sum c_i / C_ref,
 K(S) = |S| / K_ref (reference scales, optimization/scales.py), J = lambda_P P + lambda_C C + lambda_K K.
 
 Sufficiency is checked through the exact linear form sum_i w_i x_i >= W with
-w_i = -ln(1 - u_i) and W = -ln(1 - tau) (Eq. 23 of the paper), up to a relative
+w_i = -ln(1 - u_i) and W = -ln(1 - tau) (Eq. 10 of the paper), up to a relative
 tolerance of 1e-12; the returned subsets are re-checked with the product form.
 
 Methods (each returns a sorted tuple of admissible positions, or None when the
