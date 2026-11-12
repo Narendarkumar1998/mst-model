@@ -1,5 +1,5 @@
 """
-Heuristics and metaheuristics for MST, written for pools of hundreds of items.
+Constructive selection rules for MST, used as warm starts and baselines in the article.
 
 All methods work on the admissible pool D_t only and use the paper's quantities:
 U(S) = 1 - prod(1 - u_i), P(S) = 1 - prod(1 - p_i), C(S) = sum c_i / C_ref,
@@ -11,21 +11,17 @@ tolerance of 1e-12; the returned subsets are re-checked with the product form.
 
 Methods (each returns a sorted tuple of admissible positions, or None when the
 admissible pool cannot reach the threshold):
-  greedy            Dynamic Greedy-MST of the paper (untruncated marginal utility)
+  greedy            greedy on the untruncated marginal utility
   greedy_truncated  standard submodular-cover greedy: utility gain truncated at tau
   reverse_delete    removes items while the subset stays sufficient, largest J decrease first
   issc              Iyer and Bilmes (2013) iterated submodular set cover: repeatedly
                     replaces J by its modular upper bound at the current solution and
                     solves the resulting submodular cover with the truncated greedy
-  simulated_annealing, tabu_search, ga_seeded_repair
-                    metaheuristics run for a fixed wall-clock budget, started from (or
-                    seeded with) the truncated greedy solution after reverse deletion
 """
 
 from __future__ import annotations
 
 import math
-import time
 
 import numpy as np
 
@@ -175,205 +171,6 @@ def issc(pool, max_iter=50):
         else:
             break
     return best
-
-
-# ---------------------------------------------------------------------------
-# Metaheuristics with a wall-clock budget
-# ---------------------------------------------------------------------------
-
-def start_solution(pool):
-    return reverse_delete(pool, greedy_truncated(pool))
-
-
-def simulated_annealing(pool, budget_s, seed=0, trace=None):
-    """Single flips and swaps; infeasible moves are rejected. Geometric cooling over the budget."""
-    rng = np.random.default_rng(seed)
-    t_end = time.perf_counter() + budget_s
-    x = start_solution(pool)
-    if x is None:
-        return None
-    ws, y, cs, k = pool.sums(x)
-    J = float(pool.J_from(y, cs, k))
-    best, best_J = x.copy(), J
-    T0, T1 = max(0.05 * J, 1e-6), max(1e-5 * J, 1e-9)
-    t_start = time.perf_counter()
-    it = 0
-    while True:
-        if it % 256 == 0:
-            now = time.perf_counter()
-            if now >= t_end:
-                break
-            frac = (now - t_start) / budget_s
-            T = T0 * (T1 / T0) ** frac
-        it += 1
-        if rng.random() < 0.5:                       # flip
-            j = int(rng.integers(pool.m))
-            s = -1 if x[j] else 1
-            ws2, y2, cs2, k2 = ws + s * pool.wu[j], y + s * pool.pi[j], cs + s * pool.cn[j], k + s
-            if s < 0 and not pool.feasible_from(ws2):
-                continue
-            moves = ((j, not x[j]),)
-        else:                                         # swap one selected for one unselected
-            sel = np.flatnonzero(x)
-            uns = np.flatnonzero(~x)
-            if len(sel) == 0 or len(uns) == 0:
-                continue
-            i = int(sel[rng.integers(len(sel))]); j = int(uns[rng.integers(len(uns))])
-            ws2 = ws - pool.wu[i] + pool.wu[j]
-            if not pool.feasible_from(ws2):
-                continue
-            y2, cs2, k2 = y - pool.pi[i] + pool.pi[j], cs - pool.cn[i] + pool.cn[j], k
-            moves = ((i, False), (j, True))
-        J2 = float(pool.J_from(y2, cs2, k2))
-        pool.n_eval += 1
-        if J2 <= J or rng.random() < math.exp(-(J2 - J) / T):
-            for a, v in moves:
-                x[a] = v
-            ws, y, cs, k, J = ws2, y2, cs2, k2, J2
-            if J < best_J - 1e-15:
-                best, best_J = x.copy(), J
-                if trace is not None:
-                    trace.append((pool.n_eval, best_J))
-    return best
-
-
-def tabu_search(pool, budget_s, seed=0, tenure=None, trace=None):
-    """Best admissible flip or swap per iteration, with a tabu list on changed items."""
-    rng = np.random.default_rng(seed)
-    t_end = time.perf_counter() + budget_s
-    x = start_solution(pool)
-    if x is None:
-        return None
-    m = pool.m
-    tenure = tenure or int(min(20, max(7, m // 10)))
-    tabu_until = np.zeros(m, int)
-    ws, y, cs, k = pool.sums(x)
-    J = float(pool.J_from(y, cs, k))
-    best, best_J = x.copy(), J
-    it = 0
-    while time.perf_counter() < t_end:
-        it += 1
-        # single flips
-        s = np.where(x, -1.0, 1.0)
-        ws_f, y_f, cs_f, k_f = ws + s * pool.wu, y + s * pool.pi, cs + s * pool.cn, k + s
-        J_f = pool.J_from(y_f, cs_f, k_f)
-        ok_f = pool.feasible_from(ws_f)
-        free_f = (tabu_until < it) | (J_f < best_J - 1e-15)
-        J_f = np.where(ok_f & free_f, J_f, np.inf)
-        # swaps
-        sel, uns = np.flatnonzero(x), np.flatnonzero(~x)
-        best_swap = (np.inf, -1, -1)
-        if len(sel) and len(uns):
-            ws_s = ws - pool.wu[sel][:, None] + pool.wu[uns][None, :]
-            J_s = pool.J_from(y - pool.pi[sel][:, None] + pool.pi[uns][None, :],
-                              cs - pool.cn[sel][:, None] + pool.cn[uns][None, :], k)
-            free_s = ((tabu_until[sel] < it)[:, None] & (tabu_until[uns] < it)[None, :]) | (J_s < best_J - 1e-15)
-            J_s = np.where(pool.feasible_from(ws_s) & free_s, J_s, np.inf)
-            a = int(np.argmin(J_s))
-            best_swap = (float(J_s.flat[a]), int(sel[a // len(uns)]), int(uns[a % len(uns)]))
-            pool.n_eval += J_s.size
-        pool.n_eval += m
-        jf = int(np.argmin(J_f))
-        if min(J_f[jf], best_swap[0]) == np.inf:
-            # every move tabu or infeasible: random restart from the best solution
-            x = best.copy(); tabu_until[:] = 0
-            ws, y, cs, k = pool.sums(x); J = best_J
-            j = int(rng.integers(m)); tabu_until[j] = it + tenure
-            continue
-        if J_f[jf] <= best_swap[0]:
-            sgn = -1 if x[jf] else 1
-            x[jf] = not x[jf]; tabu_until[jf] = it + tenure
-            ws += sgn * pool.wu[jf]; y += sgn * pool.pi[jf]; cs += sgn * pool.cn[jf]; k += sgn
-        else:
-            _, i, j = best_swap
-            x[i], x[j] = False, True
-            tabu_until[i] = tabu_until[j] = it + tenure
-            ws += pool.wu[j] - pool.wu[i]; y += pool.pi[j] - pool.pi[i]; cs += pool.cn[j] - pool.cn[i]
-        J = float(pool.J_from(y, cs, k))
-        if J < best_J - 1e-15:
-            best, best_J = x.copy(), J
-            if trace is not None:
-                trace.append((pool.n_eval, best_J))
-    return best
-
-
-def repair(pool, X):
-    """Vectorized repair for a population: complete with items in decreasing static
-    utility-per-cost order, then drop items in decreasing cost-per-utility order while
-    the subset stays sufficient."""
-    X = np.asarray(X, bool).copy()
-    unit = pool.J_from(pool.pi, pool.cn, 1.0) - pool.J_from(0.0, 0.0, 0.0)
-    add_order = np.argsort(-(pool.wu / (unit + EPS)), kind="stable")
-    drop_order = add_order[::-1]
-    for r in range(X.shape[0]):
-        x = X[r]
-        ws = pool.wu[x].sum()
-        if not pool.feasible_from(ws):
-            for j in add_order:
-                if not x[j]:
-                    x[j] = True; ws += pool.wu[j]
-                    if pool.feasible_from(ws):
-                        break
-        for j in drop_order:
-            if x[j] and pool.feasible_from(ws - pool.wu[j]):
-                x[j] = False; ws -= pool.wu[j]
-        X[r] = x
-    return X
-
-
-def ga_seeded_repair(pool, budget_s, seed=0, pop_size=100, mut_scale=1.0, crossover="two_point",
-                     seeded=True, use_repair=True, trace=None):
-    """pymoo genetic algorithm with a wall-clock budget, a greedy seed and a repair operator."""
-    from pymoo.algorithms.soo.nonconvex.ga import GA
-    from pymoo.core.callback import Callback
-    from pymoo.core.problem import Problem
-    from pymoo.core.repair import Repair
-    from pymoo.operators.crossover.pntx import TwoPointCrossover
-    from pymoo.operators.crossover.ux import UniformCrossover
-    from pymoo.operators.mutation.bitflip import BitflipMutation
-    from pymoo.optimize import minimize
-    from pymoo.termination.max_time import TimeBasedTermination
-
-    if not pool.pool_feasible():
-        return None
-    x0 = start_solution(pool)
-
-    class Prob(Problem):
-        def __init__(self):
-            super().__init__(n_var=pool.m, n_obj=1, n_ieq_constr=1, xl=0, xu=1, vtype=bool)
-
-        def _evaluate(self, X, out, *a, **kw):
-            Xf = X.astype(float)
-            ws = Xf @ pool.wu
-            out["F"] = pool.J_from(Xf @ pool.pi, Xf @ pool.cn, Xf.sum(axis=1))[:, None]
-            out["G"] = (pool.W * (1 - TOL) - ws)[:, None]
-            pool.n_eval += X.shape[0]
-
-    class Rep(Repair):
-        def _do(self, problem, X, **kw):
-            return repair(pool, X)
-
-    rng = np.random.default_rng(seed)
-    init = rng.random((pop_size, pool.m)) < 0.5
-    if seeded:
-        init[0] = x0
-    class Trace(Callback):
-        def notify(self, algorithm):
-            if trace is not None:
-                f = algorithm.opt.get("F")
-                if f is not None and len(f):
-                    trace.append((pool.n_eval, float(f.min())))
-
-    xo = TwoPointCrossover() if crossover == "two_point" else UniformCrossover()
-    algo = GA(pop_size=pop_size, sampling=init, crossover=xo,
-              mutation=BitflipMutation(prob=1.0, prob_var=min(1.0, mut_scale / max(pool.m, 1))),
-              repair=Rep() if use_repair else None, eliminate_duplicates=True)
-    res = minimize(Prob(), algo, TimeBasedTermination(budget_s), seed=seed, verbose=False,
-                   callback=Trace())
-    if res.X is None:
-        return None
-    x = np.asarray(res.X, bool).ravel()
-    return x if pool.feasible(x) else None
 
 
 METHODS = {
